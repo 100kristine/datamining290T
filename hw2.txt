@@ -1,0 +1,29 @@
+Kristine Yoshihara
+Info 290T
+
+
+
+ + What are the types of data available to you?
+ I chose the flickr taxonomies dataset found at http://www.isi.edu/~lerman/downloads/flickr/flickr_taxonomies.html. The data contains two tables, with each row stored as comma delimited values.
+
+ Table anonym_folder: Contains entries for a private user id(String), the stemmed name of the parent folder (String), the name of the public parent id (int), the stemmed name of the child folder (String), and the child public id(int).
+
+ Table anonym_tag: Contains entries for a private user id(String), a stemmed tag created by that user(String), the frequency of use of that tag (int), and the id of the folder that the tag was used in (int)
+
+
+  + For data sets: how many records are in the data set?
+74657 entries in anonym_folder.csv
+7656032 entries in anonym_tag.csv
+
+  + Provide an "interesting" record, explain its properties and why it is interesting
+
+Some interesting entries include a handful from anonym_tag that used whole phrases as tags. This seems to be more for humorous purposes, since their length makes retrieval more difficult. It is interesting to note that each tag was only used once (frequency=1). These tags are not useful for organizing, but serve to make whatever elements they described memorable to a human observer. 
+"1406","ididntrealizetheywereinstep",1,754
+"1406","iguesswealsoneedarugunderthetemporaryt",1,754
+"1406","ihopebassettisincorrectaboutthefourweekwait",1,754
+
+  + What are 3 questions you could answer using your data?
+What are the names of the parent folders with the top 10 most children?
+What are the top 20 most highly used tags?
+What are the titles of the collections created by the top 10 users with the highest number of tags (total tags, not total type of tags)? 
+
