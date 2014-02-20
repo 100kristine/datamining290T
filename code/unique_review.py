@@ -18,7 +18,11 @@ class UniqueReview(MRJob):
             # for word in ____:
             #   yield [ ___ , ___ ]
             ##/
+            for word in WORD_RE.findall(record['text']):
+                #print word.lower(),record['review_id']
+                yield [word.lower(),record['review_id']]
 
+    #Mapper in: <line number,text> out: review_id, 1
     def count_reviews(self, word, review_ids):
         """Count the number of reviews a word has appeared in.  If it is a
         unique word (ie it has only been used in 1 review), output that review
@@ -30,13 +34,17 @@ class UniqueReview(MRJob):
         # if ___:
         #     yield [ ___ , ___ ]
         ##/
+        if len(unique_reviews) == 1:
+            yield [unique_reviews.pop(),1]
 
+    #Map in: <review_id,1>
     def count_unique_words(self, review_id, unique_word_counts):
         """Output the number of unique words for a given review_id"""
         ###
         # TODO: summarize unique_word_counts and output the result
         #
         ##/
+        yield [review_id,sum(unique_word_counts)]
 
     def aggregate_max(self, review_id, unique_word_count):
         """Group reviews/counts together by the MAX statistic."""
@@ -45,6 +53,7 @@ class UniqueReview(MRJob):
         # the same reducer:
         # yield ["MAX", [ ___ , ___]]
         ##/
+        yield ["MAX",[unique_word_count,review_id]]
 
     def select_max(self, stat, count_review_ids):
         """Given a list of pairs: [count, review_id], select on the pair with
@@ -55,7 +64,9 @@ class UniqueReview(MRJob):
         # number
         #
         #/
-
+        m = max(count_review_ids)
+        yield [m[1],m[0]]
+    
     def steps(self):
         """TODO: Document what you expect each mapper and reducer to produce:
         mapper1: <line, record> => <key, value>
@@ -64,8 +75,8 @@ class UniqueReview(MRJob):
         """
         return [
             self.mr(self.extract_words, self.count_reviews),
-            self.mr(reducer=self.count_unique_words),
-            self.mr(self.aggregate_max, self.select_max),
+                        self.mr(reducer=self.count_unique_words),
+                        self.mr(self.aggregate_max, self.select_max),
         ]
 
 
