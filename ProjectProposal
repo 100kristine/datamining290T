@@ -1,0 +1,31 @@
+I290T: Data Mining and Analytics in Intelligent Business Services
+
+Team Members & Roles
+Brian Murphy, School of Information 
+Kristine Yoshihara, School of Information
+
+Background:
+
+Smartphones can provide a wealth of information about their users. Datasets sourced from smartphones may collect information from network connections, sensors, apps, or even the phone’s hardware. Typically, many of the most extensive datasets are private, curated by service providers for commercial purposes. However, we have recently obtained a subset of data from DeviceAnalyzer, an ongoing project by the University of Cambridge, to collect usage statistics as a phone runs. There are currently 17849 users that have contributed to this project, which gathers highly comprehensive, unprocessed data about a smartphone as it is used.
+
+Project Goals: 
+
+Broadly, we are interested in understanding how users use apps on mobile devices while driving and how this varies in different environments (i.e. driving with heavy traffic in rain in New York versus San Francisco). From the data listed on DeviceAnalyzer, it seems possible to differentiate between transit types through features such as airplane mode, mobility patterns, and rate of change in location. To do this, we would potentially integrate additional data from the national census, the Yelp Phoenix Dataset, and/or datasf.org to examine differences by types of geographic region, population metrics, and the types of businesses in the region. We are also interested the prevalency of unsafe app use while driving and how this differs by geographic region and surrounding environment.
+
+Technical Requirements:
+
+We have not yet obtained the full dataset (currently we have a subset), but given that the data for a single user is a few hundred MB and there are over 17,000 users, not accounting for the time complexity of our final code, we anticipate that we may need to use a cluster and MapReduce. We will likely refine our methods on a subset of the full data before approaching the full set. We anticipate beginning with simple tests of statistical correlation and unsupervised machine learning to understand the data.
+
+Hypothesis/Outcome:
+
+We hope to find interesting patterns of use and mobility in transit, based on smartphone use in different geographic regions. One potential question of interest is whether smartphone usage can predict when a user is in certain regions, for example, a residential area versus an area with a high density of restaurants and stores. This can be used in conjunction with mobility analysis: to answer questions such as: Is this user driving erratically in an area where there are likely to be many people crossing the street? We are still narrowing our topic, depending on what seems most promising in the data.
+
+Collaborations:
+
+This project is being pursued concurrently in the classes:
+Info 290T. Agile Engineering Practices (Brian)  
+CS 289. Introduction to Machine Learning (Kristine)  
+
+This project is also intended to be an entry in the Ubicomp 2014 programming challenge.
+
+*We have not yet obtained the full dataset – this depends on another proposal. We obtained the first sampling from the dataset with a broad description of our idea and believe that we will not have significant trouble getting the full dataset.
