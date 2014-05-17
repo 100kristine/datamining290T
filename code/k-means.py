@@ -86,7 +86,6 @@ def iterate_centroids(xs, centroids):
 # Print results
 ##/
 
-#
 initial_centroids = pick_centroids(dataset, k)
 final_centroids, final_clusters = iterate_centroids(dataset, initial_centroids)
 
